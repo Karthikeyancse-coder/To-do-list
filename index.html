@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1 class="app-title">Todo Calendar</h1>
+             <!-- Toggle Button: ADD HERE -->
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <span id="theme-icon">🌙</span>
+              </button>
+            <div class="datetime-display">
+                
+                <div class="current-date" id="current-date"></div>
+                <div class="current-time" id="current-time"></div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Calendar Panel -->
+            <div class="calendar-panel">
+                <div class="calendar-header">
+                    <button class="btn-3d btn-nav" id="prev-month" type="button">
+                        <span>←</span>
+                    </button>
+                    <h2 class="calendar-title" id="calendar-title">September 2025</h2>
+                    <button class="btn-3d btn-nav" id="next-month" type="button">
+                        <span>→</span>
+                    </button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-weekdays">
+                        <div class="weekday">Sun</div>
+                        <div class="weekday">Mon</div>
+                        <div class="weekday">Tue</div>
+                        <div class="weekday">Wed</div>
+                        <div class="weekday">Thu</div>
+                        <div class="weekday">Fri</div>
+                        <div class="weekday">Sat</div>
+                    </div>
+                    <div class="calendar-days" id="calendar-days">
+                        <!-- Calendar days will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks Panel -->
+            <div class="tasks-panel">
+                <!-- Add Task Form -->
+                <div class="add-task-section">
+                    <h3>Add New Task</h3>
+                    <form class="add-task-form" id="add-task-form">
+                        <div class="form-row">
+                            <input type="text" id="task-title" placeholder="Enter task title..." class="form-input" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="date" id="task-date" class="form-input" required>
+                            <select id="task-priority" class="form-select" required>
+                                <option value="" disabled selected>Priority</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <select id="task-category" class="form-select" required>
+                                <option value="" disabled selected>Category</option>
+                                <option value="Work">Work</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Health">Health</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Education">Education</option>
+                                <option value="Travel">Travel</option>
+                            </select>
+                            <button type="submit" class="btn-3d btn-primary">Add Task</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Task Filters -->
+                <div class="filters-section">
+                    <h3>Filters</h3>
+                    <div class="filter-buttons">
+                        <button class="btn-3d btn-filter active" data-filter="all" type="button">All</button>
+                        <button class="btn-3d btn-filter" data-filter="today" type="button">Today</button>
+                        <button class="btn-3d btn-filter" data-filter="completed" type="button">Completed</button>
+                        <button class="btn-3d btn-filter" data-filter="incomplete" type="button">Incomplete</button>
+                    </div>
+                    <div class="priority-filters">
+                        <button class="btn-3d btn-priority" data-priority="high" type="button">High</button>
+                        <button class="btn-3d btn-priority" data-priority="medium" type="button">Medium</button>
+                        <button class="btn-3d btn-priority" data-priority="low" type="button">Low</button>
+                    </div>
+                </div>
+
+                <!-- Tasks List -->
+                <div class="tasks-section">
+                    <h3 id="tasks-section-title">All Tasks</h3>
+                    <div class="tasks-list" id="tasks-list">
+                        <!-- Tasks will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Notification -->
+        <div class="notification hidden" id="notification">
+            <span class="notification-text"></span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
